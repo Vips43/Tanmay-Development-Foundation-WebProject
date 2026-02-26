@@ -11,6 +11,7 @@ import Agriculture from "./pages/agriculture";
 import Education from "./pages/education";
 import PinNumber from "./pages/PinNumber";
 import ModeTransaction from "./pages/ModeTransaction";
+import Donation from "./pages/Donation";
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
       <Route path="/Card-Transaction" element={<CardTransaction/>}/>
       <Route path="/Agriculture" element={<Agriculture/>}/>
       <Route path="/Education" element={<Education/>}/>
+      <Route path="/Donation" element={<Donation/>}/>
       <Route path="/Pin-Number" element={<PinNumber/>}/>
       <Route path="/Mode-Transaction" element={<ModeTransaction/>}/>     
     </Routes>

@@ -1,12 +1,4 @@
-/* Wrap the body in a flexbox layout for perfect centering */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  background-color: white; /* Optional: better contrast */
-}
+
 
 .mode-transaction-container {
   top: 40px;

@@ -1,0 +1,75 @@
+/* ===== NAVBAR BASE ===== */
+.navbar {
+  width: 100%;
+  background-color: #508c33;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Row Layout */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+  margin: 0;
+  padding: 15px 0;
+}
+
+/* Links */
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a,
+.nav-links li {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #d4f5c2;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  border-radius: 6px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  min-width: 200px;
+}
+
+.dropdown-menu li {
+  padding: 8px 15px;
+}
+
+.dropdown-menu li a {
+  color: #333;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+}

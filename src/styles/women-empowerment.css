@@ -1,7 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-}
 .women-empowerment-page-title span {
     /* h1-tag class home-title inside this two more class span=>class:green and class span=>class:red */
     padding: 0 7px;
@@ -144,80 +140,4 @@ body {
 .key-initiatives p {
     font-size: 30px;
     margin-left: 60px;
-}
-
-.footer {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    padding: 20px 40px;
-    color: black;
-    text-align: center;
-}
-
-.footer-section {
-    margin-bottom: 40px;
-    justify-content: end;
-    border-top: 5px solid black;
-    padding-top: 15px;
-}
-
-.footer-section h1 {
-    font-size: 45px;
-    color: #2a7e35;
-    margin-bottom: 10px;
-}
-
-.footer-section p {
-    font-size: 30px;
-    line-height: 1.6;
-    color: black;
-}
-
-.footer-columns {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-
-.footer-column {
-    flex: 1;
-    margin: 10px;
-    min-width: 200px;
-    max-width: 250px;
-}
-
-.footer-column h3 {
-    color: #2a7e35;
-    margin-bottom: 10px;
-    font-size: 30px;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-column ul li {
-    font-size: 25px;
-    margin: 5px 0;
-    color: black;
-}
-
-.footer-column p {
-    font-size: 22px;
-    color: black;
-    line-height: 1.5;
-}
-
-.footer-bottom {
-    justify-content: end;
-    border-top: 5px solid #2a7e35;
-    padding-top: 15px;
-}
-
-.footer-bottom p {
-    font-size: 20px;
-    color: black;
-    margin-left: 1398px;
 }

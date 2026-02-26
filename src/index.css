@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+ --primary: #508c32;
+ --primary-dark: #3e6f27;
+ --primary-light: #6aa64d;
+ --bgClr: #ece5f0;
+}
+
+@theme {
+ --color-primary: var(--primary);
+ --color-primary-dark: var(--primary-dark);
+ --color-primary-light: var(--primary-light);
+ --color-bgClr: var(--bgClr);
+ --font-sans:
+  -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+  "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+ --font-mono:
+  source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+ --font-montserrat: "Montserrat", sans-serif;
+}
+@layer base {
+ body {
+  margin: 0;
+  font-family: var(--font-sans); /* Uses the font defined in @theme */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ }
+
+ code {
+  font-family: var(--font-mono); /* Uses the font defined in @theme */
+ }
+}
