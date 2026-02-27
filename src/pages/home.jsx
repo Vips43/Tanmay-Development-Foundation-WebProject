@@ -1,7 +1,7 @@
 import "../styles/home.css";
 import { Link } from "react-router-dom";
-import hero1 from "../assets/home/about-us-img1.webp";
-import hero2 from "../assets/home/home-hero.webp";
+import hero1 from "../assets/home/home-hero.webp";
+import hero2 from "../assets/home/about-us-img1.webp";
 import hero3 from "../assets/home/home-hero-img.webp";
 import hero4 from "../assets/home/people-sitting-together.webp";
 import hero5 from "../assets/home/womenwithstartup.webp";

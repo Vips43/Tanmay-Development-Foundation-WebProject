@@ -12,7 +12,7 @@ function Donation() {
 
 
    <div className="w-full shadow-[11px_13px_5px_0px_#00000040]">
-    <img src="/images/home-hero-img.png" alt="" />
+    <img src="/images/donation/home-hero-img.webp" alt="" />
    </div>
    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 mt-24">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -235,9 +235,9 @@ function Donation() {
     </p>
    </div>
    <div className="my-10">
-    <img src="images/donation/wave-design.png" alt="bottom wave" />
+    <img src="images/donation/wave-design.webp" alt="bottom wave" className="object-center object-cover w-full" />
    </div>
-   <div className="donation-tax-act">
+   <div className="">
     <img
      src="images/donation-tax-act.png"
      alt="donation tax act"

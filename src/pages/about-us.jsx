@@ -56,10 +56,10 @@ function AboutUs() {
      <span></span> Media <span></span>
     </h1>
     <div className="about-media_imgs">
-     <img src="/images/media/media1.jpg" alt="" />
-     <img src="/images/media/media2.jpg" alt="" />
-     <img src="/images/media/media3.jpg" alt="" />
-     <img src="/images/media/media4.jpg" alt="" />
+     <img src="/images/media/media1.webp" alt="" />
+     <img src="/images/media/media2.webp" alt="" />
+     <img src="/images/media/media3.webp" alt="" />
+     <img src="/images/media/media4.webp" alt="" />
     </div>
    </section>
    {/* section our impact  */}

@@ -3,15 +3,13 @@ function Education() {
   <main className="w-full bg-[#ece5f0] pt-16">
    <div className="border-8 border-primary w-sm md:w-xl ml-10 rounded-sm "></div>
    <h1 className="text-3xl md:text-5xl font-bold my-5 ml-10">Education</h1>
-   <div className="border-b-[1.5rem] md:border-b-[2rem] border-primary w-full">
-    {/* The Hero Image */}
+   <div className="border-b-[1.5rem] md:border-b-[2rem] border-primary w-full overflow-hidden">
     <img
-     loading="lazy"
-     src="/src/assets/edu/education-hero.png"
+     fetchPriority="high"
+     src="/images/edu/education-hero.webp"
      alt="Students learning"
-     className="w-full h-[40vh] md:h-[60vh]  object-right md:object-cover"
+     className="w-full h-[40vh] md:h-[60vh] object-cover object-right md:object-center"
     />
-    
    </div>
 
    <section className="mt-20">
@@ -73,14 +71,14 @@ function Education() {
 
    <img
     loading="lazy"
-    src="/src/assets/edu/Rectangle 7.png"
+    src="/images/edu/Rectangle-7.webp"
     alt="children-with-books"
     className="w-full"
    />
-   <div className="flex items-center gap-10 mx-3">
+   <div className="flex flex-col md:flex-row my-10 items-center gap-4 md:gap-10 mx-3">
     <img
      loading="lazy"
-     src="images/our-role.png"
+     src="/images/our-role.png"
      alt="our-role-education"
      className="rounded-2xl aspect-square w-72"
     />
@@ -102,7 +100,7 @@ function Education() {
      <div className="w-full p-2 mb-4">
       <img
        loading="lazy"
-       src="/images/gallery/image7.jpg"
+       src="/images/gallery/image7.webp"
        alt="Providing education material"
        className="w-full h-full aspect-square object-cover rounded-2xl shadow-md"
       />
@@ -117,7 +115,7 @@ function Education() {
      <div className="w-full p-2 mb-4">
       <img
        loading="lazy"
-       src="/images/gallery/image3.jpg"
+       src="/images/gallery/image3.webp"
        alt="Enhancing rural primary education"
        className="w-full h-full aspect-square object-cover rounded-2xl shadow-md"
       />
@@ -132,7 +130,7 @@ function Education() {
      <div className="w-full p-2 mb-4">
       <img
        loading="lazy"
-       src="/images/gallery/image15.jpg"
+       src="/images/gallery/image15.webp"
        alt="Comprehensive curriculum design"
        className="w-full h-full aspect-square object-cover rounded-2xl shadow-md"
       />
@@ -150,7 +148,7 @@ function Education() {
      <div className="w-full aspect-video overflow-hidden rounded-2xl shadow-md mb-6">
       <img
        loading="lazy"
-       src="/images/gallery/image6.jpg"
+       src="/images/gallery/image6.webp"
        alt="Distributing educational supplies"
        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
@@ -170,7 +168,7 @@ function Education() {
      <div className="w-full aspect-video overflow-hidden rounded-2xl shadow-md mb-6">
       <img
        loading="lazy"
-       src="/images/gallery/image8.jpg"
+       src="/images/gallery/image8.webp"
        alt="Students studying in rural areas"
        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
@@ -182,7 +180,7 @@ function Education() {
      <div className="h-0.75 w-24 bg-primary rounded-full mt-5"></div>
      <img
       loading="lazy"
-      src="/src/assets/edu/Vector-4.png"
+      src="/images/edu/Vector-4.png"
       alt=""
       className="absolute hidden md:block top-full left-full h-44"
      />
@@ -193,7 +191,7 @@ function Education() {
      <div className="w-full aspect-video overflow-hidden rounded-2xl shadow-md mb-6">
       <img
        loading="lazy"
-       src="/src/assets/edu/children-watching-tv.jpg"
+       src="/images/edu/children-watching-tv.webp"
        alt="Children watching educational content"
        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
@@ -206,7 +204,7 @@ function Education() {
     </div>
     <img
      loading="lazy"
-     src="/src/assets/edu/Frame-154.png"
+     src="/images/edu/Frame-154.png"
      alt=""
      className="absolute bottom-0 right-0 h-20"
     />
