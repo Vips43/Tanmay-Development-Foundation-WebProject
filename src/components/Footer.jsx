@@ -66,11 +66,11 @@ function Footer() {
           <div className="social-media-links">
             <h3>Follow Us</h3>
             <div className="social-icons">
-              <a href="https://youtube.com/@tanmaydevelopmentfoundation-ky?si=V3pzRzHzTpn2DZvd"><img src="/images/youtube-logo.png" alt="youtube-logo" className="logo-img" /></a>
-              <a href="https://www.facebook.com/profile.php?id=61553108560108&mibextid=ZbWKwL"><img src="/images/facebook-logo.png" alt="facebook-logo" className="logo-img" /></a>
-              <a href="https://www.instagram.com/tanmay.foundation?igsh=MThmZmVsaDd4MDd0Zw=="><img src="/images/i.png" alt="instagram-logo" className="logo-img" /></a>
-              <a href="https://x.com/Tanmayfound8858?t=Wfau1BMsphhvS4ZcNAlGPg&s=09"><img src="/images/X-logo.png" alt="X-logo" className="logo-img" /></a>
-              <a href="https://www.linkedin.com/company/tanmay-developement-foundation-classes/"><img src="/images/linkedin-logo.jpg" alt="Linkedin-logo" className="logo-img" /></a>
+              <a href="https://youtube.com/@tanmaydevelopmentfoundation-ky?si=V3pzRzHzTpn2DZvd"><img src="/images/socials/youtube-logo.png" alt="youtube-logo" className="logo-img" /></a>
+              <a href="https://www.facebook.com/profile.php?id=61553108560108&mibextid=ZbWKwL"><img src="/images/socials/facebook-logo.png" alt="facebook-logo" className="logo-img" /></a>
+              <a href="https://www.instagram.com/tanmay.foundation?igsh=MThmZmVsaDd4MDd0Zw=="><img src="/images/socials/instagram-logo.png" alt="instagram-logo" className="logo-img" /></a>
+              <a href="https://x.com/Tanmayfound8858?t=Wfau1BMsphhvS4ZcNAlGPg&s=09"><img src="/images/socials/X-logo.png" alt="X-logo" className="logo-img" /></a>
+              <a href="https://www.linkedin.com/company/tanmay-developement-foundation-classes/"><img src="/images/socials/linkedin-logo.jpg" alt="Linkedin-logo" className="logo-img" /></a>
             </div>
           </div>
         </div>

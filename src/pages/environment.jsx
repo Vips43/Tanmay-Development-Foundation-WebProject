@@ -9,7 +9,7 @@ function Environment() {
     </h1>
     <div className=" mx-5 md:mx-10 border-y-30 border-primary-light">
      <img
-      src="images/environmentImage1.png"
+      src="images/environment/environmentImage1.webp"
       alt="environment-image"
       className=""
      />
@@ -45,7 +45,7 @@ function Environment() {
      </p>
     </section>
     <img
-     src="images/people-sitting-together.jpg"
+     src="images/environment/environmentImage2.webp"
      alt="environment-image"
      className=""
     />

@@ -10,15 +10,6 @@ import hero7 from "../assets/home/about-us-img1.webp";
 import { useEffect, useState } from "react";
 
 function Home() {
- const [loading, setLoading] = useState(true);
-
- useEffect(() => {
-  const timer = setTimeout(() => {
-   setLoading(false);
-  }, 1500);
-
-  return () => clearTimeout(timer);
- }, []);
 
  const [currentSlide, setCurrentSlide] = useState(0);
  const slideShow = [hero1, hero2, hero3, hero4, hero5, hero6, hero7];
@@ -31,13 +22,6 @@ function Home() {
   return () => clearInterval(interval);
  }, []);
 
- if (loading) {
-  return (
-   <div className="flex items-center justify-center h-screen">
-    <div className="w-12 h-12 rounded-full border-4 border-yellow-400 border-b-transparent animate-spin"></div>
-   </div>
-  );
- }
  return (
   <main className="home">
 
