@@ -7,6 +7,7 @@ pdfMake.vfs = pdfFonts.vfs;
 
 const PinNumber = () => {
  const [errorMessage, setErrorMessage] = useState("");
+ const [showSuccessMessage, setShowSuccessMessage] = useState(false);
  const [pin, setPin] = useState(["", "", "", ""]);
  const inputs = useRef([]);
  const [paymentSuccess, setPaymentSuccess] = useState(false);
@@ -20,7 +21,7 @@ const PinNumber = () => {
   const newPin = [...pin];
   newPin[index] = value;
   setPin(newPin);
-  
+
   if (newPin.join("").length === 4) {
    setTimeout(() => handlePayment(), 300);
   }
@@ -253,23 +254,32 @@ const PinNumber = () => {
      <div className="w-10 h-10 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto"></div>
     </div>
    ) : (
-    <div className="text-center space-y-6">
+    <div className="relative text-center space-y-6">
      <video
       ref={videoRef}
       autoPlay
       muted
       playsInline
-      className="w-full max-w-md rounded-xl shadow-lg"
+      onEnded={() => setShowSuccessMessage(true)}
+      className={`w-full max-w-md rounded-xl shadow-lg ${showSuccessMessage ? "hidden" : ""}`}
      >
       <source src="/images/payment-successful-message.mp4" type="video/mp4" />
      </video>
 
-     <button
-      onClick={generateCertificate}
-      className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-lg transition"
-     >
-      Generate Certificate
-     </button>
+     {showSuccessMessage && (
+      <div className="animate-fadeIn space-y-4">
+       <h2 className="text-2xl font-semibold text-green-600">
+        Payment Successful 🎉
+       </h2>
+
+       <button
+        onClick={generateCertificate}
+        className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-lg transition"
+       >
+        Generate Certificate
+       </button>
+      </div>
+     )}
     </div>
    )}
   </div>

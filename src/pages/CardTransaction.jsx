@@ -1,206 +1,182 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import "../styles/CardTransaction.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const CardTransaction = () => {
-  const [cardNumber, setCardNumber] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
   const [amount, setAmount] = useState("");
-  const [name, setname] = useState("");
-  const [date2, setdate2] = useState("");
-  const [currenttime,setcurrenttime] = useState("");
-  
-  const [notifyname, setnotifyname] = useState(false);
-  const [security, setsecurity] = useState("");
-  const [notifysecurity, setnotifysecurity] = useState(false);
+  const [cardNumber, setCardNumber] = useState("");
+  const [name, setName] = useState("");
+  const [expiryMonth, setExpiryMonth] = useState("");
+  const [expiryYear, setExpiryYear] = useState("");
+  const [cvv, setCvv] = useState("");
+  const [error, setError] = useState("");
 
-  const [date1, setdate1] = useState("");
-  const [notifydate1, setnotifydate1] = useState(false);
   const navigate = useNavigate();
-
-  const handleAmountNumberChange = (e) => {
-    const value = e.target.value;
-    if (!isNaN(value)) {
-      setAmount(value);
-    }
-  };
-
-  const handleCardNumberChange = (e) => {
-    const value = e.target.value;
-    if (!isNaN(value) && value.length <= 16) {
-      setCardNumber(value);
-    }
-    if (value.length === 16) {
-      setErrorMessage("");
-    } else {
-      setErrorMessage("CARD NUMBER MUST BE 16 DIGITS.");
-    }
-  };
-
-  const handlenamechange = (e) => setname(e.target.value);
-  const handlesecuritychange = (e) => {
-    const value = e.target.value;
-    if (!isNaN(value) && value.length <= 3) {
-      setsecurity(value);
-    }
-  };
-  const handledate1change = (e) => setdate1(e.target.value);
-  const handledate2change = (e) => setdate2(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (cardNumber.length !== 16) {
-      setErrorMessage("CARD NUMBER MUST BE 16 DIGITS*");
-    } else if (name.trim() === "") {
-      setnotifyname(true);
-    } else if (!date1) {
-      setnotifydate1(true);
-    } else if (security.length !== 3) {
-      setnotifysecurity(true);
-    } else {
-      setErrorMessage("");
-      const currentday = format(new Date(), "dd");
-      const currentmonth = format(new Date(), "MMMM");
-      const currentyear = format(new Date(), "yyyy");
-      const currenthour = format(new Date(), "HH");
-      const currentminute = format(new Date(), "mm");
+    if (!amount) return setError("Amount is required.");
+    if (cardNumber.length !== 16)
+      return setError("Card number must be 16 digits.");
+    if (!name.trim()) return setError("Name is required.");
+    if (!expiryMonth || !expiryYear)
+      return setError("Expiry date is required.");
+    if (cvv.length !== 3) return setError("CVV must be 3 digits.");
 
-      const timeconcate = `${currentday} ${currentmonth} ${currentyear} at ${currenthour}:${currentminute} PM`;
-      setcurrenttime(timeconcate);
+    setError("");
 
-      const item = {
+    const timestamp = format(new Date(), "dd MMMM yyyy 'at' HH:mm");
+
+    const paymentData = {
+      amount,
+      cardNumber,
+      name,
+      expiryMonth,
+      expiryYear,
+      cvv,
+      timestamp,
+    };
+
+    console.log(paymentData);
+
+    navigate("/Pin-Number", {
+      state: {
         amount,
-        cardNumber,
         name,
-        date1,
-        date2,
-        security,
-        currenttime: timeconcate,
-      };
-      console.log(item);
-      navigate("/Pin-Number");
-    }
+        date: timestamp,
+      },
+    });
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
 
-      <div className="title-container">
-        <h2 className="title">CARD TRANSACTIONS</h2>
-      </div>
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6 space-y-6">
 
-      <div className="container">
-        <div className="payment-box">
-          <h3 className="subtitle">Payment Details</h3>
+        <h2 className="text-2xl font-bold text-center">
+          Card Payment
+        </h2>
 
-          <div className="payment-icons">
-            <img src="images/visacard.png" alt="visa-card" className="icon" />
-            <img
-              src="images/mastercard.png"
-              alt="master-card"
-              className="icon"
+        {/* Card Logos */}
+        <div className="flex justify-center gap-4">
+          <img src="/images/visacard.png" className="h-8" />
+          <img src="/images/mastercard.png" className="h-8" />
+          <img src="/images/rupaycard.png" className="h-8" />
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
+
+          {/* Amount */}
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Amount
+            </label>
+            <input
+              type="number"
+              min="1"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-yellow-400 outline-none"
+              placeholder="Enter donation amount"
             />
-            <img src="images/paypal.jpg" alt="paypal-card" className="icon" />
-            <img src="images/rupaycard.png" alt="rupay-card" className="icon" />
           </div>
 
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>Amount</label>
-              <input
-                type="text"
-                placeholder="PLEASE ENTER DONATION AMOUNT"
-                className="input-field"
-                value={amount}
-                onChange={handleAmountNumberChange}
-              />
-            </div>
+          {/* Card Number */}
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Card Number
+            </label>
+            <input
+              type="text"
+              maxLength={16}
+              value={cardNumber}
+              onChange={(e) =>
+                setCardNumber(e.target.value.replace(/\D/g, ""))
+              }
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-yellow-400 outline-none"
+              placeholder="1234 5678 9012 3456"
+            />
+          </div>
 
-            <div className="form-group">
-              <label>Card Number</label>
-              <input
-                type="text"
-                placeholder="PLEASE ENTER CARD NUMBER"
-                className="input-field"
-                value={cardNumber}
-                onChange={handleCardNumberChange}
-              />
-              {errorMessage && (
-                <span className="error-message">{errorMessage}</span>
-              )}
-            </div>
+          {/* Name */}
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Name on Card
+            </label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-yellow-400 outline-none"
+              placeholder="Cardholder name"
+            />
+          </div>
 
-            <div className="form-group">
-              <label>Name on the Card</label>
-              <input
-                type="text"
-                placeholder="PLEASE ENTERED YOUR NAME"
-                className="input-field"
-                value={name}
-                onChange={handlenamechange}
-              />
-              {notifyname && (
-                <span className="error-message">Name is required*</span>
-              )}
-            </div>
-
-            <div className="form-row">
-              <div className="form-group half">
-                <label>Expiry Date</label>
-                <div className="expiry-fields">
-                  <input
-                    type="text"
-                    placeholder="MM"
-                    className="input-field small"
-                    value={date1}
-                    onChange={handledate1change}
-                    maxLength={2}
-                  />
-                  <span className="separator">/</span>
-                  <input
-                    type="text"
-                    placeholder="YYYY"
-                    className="input-field small"
-                    value={date2}
-                    onChange={handledate2change}
-                    maxLength={4}
-                  />
-                </div>
-                {notifydate1 && (
-                  <span className="error-message">
-                    Expiry date is required*
-                  </span>
-                )}
-              </div>
-
-              <div className="form-group-half">
-                <label>Security Code</label>
+          {/* Expiry + CVV */}
+          <div className="flex gap-4">
+            <div className="flex-1">
+              <label className="block text-sm font-medium mb-1">
+                Expiry (MM/YY)
+              </label>
+              <div className="flex gap-2">
                 <input
-                  type="password"
-                  placeholder="***"
-                  className="input-field"
-                  value={security}
-                  onChange={handlesecuritychange}
+                  type="text"
+                  maxLength={2}
+                  value={expiryMonth}
+                  onChange={(e) =>
+                    setExpiryMonth(e.target.value.replace(/\D/g, ""))
+                  }
+                  className="w-full border rounded-lg px-3 py-2"
+                  placeholder="MM"
                 />
-                {notifysecurity && (
-                  <span className="error-message">
-                    Security code must be 3 digits*
-                  </span>
-                )}
+                <input
+                  type="text"
+                  maxLength={2}
+                  value={expiryYear}
+                  onChange={(e) =>
+                    setExpiryYear(e.target.value.replace(/\D/g, ""))
+                  }
+                  className="w-full border rounded-lg px-3 py-2"
+                  placeholder="YY"
+                />
               </div>
             </div>
-            <button type="submit" className="submit-btn">
-              Continue Payment
-            </button>
-          </form>
-        </div>
+
+            <div className="w-24">
+              <label className="block text-sm font-medium mb-1">
+                CVV
+              </label>
+              <input
+                type="password"
+                maxLength={3}
+                value={cvv}
+                onChange={(e) =>
+                  setCvv(e.target.value.replace(/\D/g, ""))
+                }
+                className="w-full border rounded-lg px-3 py-2"
+                placeholder="***"
+              />
+            </div>
+          </div>
+
+          {/* Error */}
+          {error && (
+            <p className="text-red-500 text-sm text-center">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-2.5 rounded-lg transition"
+          >
+            Continue Payment
+          </button>
+
+        </form>
       </div>
-      <Footer />
-    </>
+    </div>
   );
 };
 
