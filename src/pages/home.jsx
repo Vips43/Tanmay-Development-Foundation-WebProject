@@ -110,10 +110,10 @@ function Home() {
      <span></span> Media <span></span>
     </h1>
     <div className="home-media_imgs">
-     <img loading="lazy" src="/images/media/media1.jpg" alt="barabanki-news" />
-     <img loading="lazy" src="/images/media/media2.jpg" alt="tanmay development Foundation news" />
-     <img loading="lazy" src="/images/media/media3.jpg" alt="tanmay development Foundation news" />
-     <img loading="lazy" src="/images/media/media4.jpg" alt="aware womens related to monthly cycle" />
+     <img loading="lazy" src="/images/media/media1.webp" alt="barabanki-news" />
+     <img loading="lazy" src="/images/media/media2.webp" alt="tanmay development Foundation news" />
+     <img loading="lazy" src="/images/media/media3.webp" alt="tanmay development Foundation news" />
+     <img loading="lazy" src="/images/media/media4.webp" alt="aware womens related to monthly cycle" />
     </div>
    </section>
    {/* section our impact  */}
