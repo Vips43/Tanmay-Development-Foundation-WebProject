@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "../styles/agriculture.css";
 import { agriculturalProjects } from "../data/data.js";
 
 function Agriculture() {
@@ -14,8 +13,6 @@ function Agriculture() {
 
  return (
   <main className="w-full bg-[#ece5f0] py-16">
-
-
    <header className="px-3 md:px-7">
     <div className="border-8 border-primary w-sm md:w-xl rounded-sm "></div>
     <h1 className="text-3xl font-bold font-montserrat">
@@ -131,32 +128,42 @@ function Agriculture() {
       gas emissions.
      </p>
      <img
-      className="rounded-2xl scale-95 aspect-video"
-      src="images/tractor.jpg"
+      className="rounded-2xl aspect-video w-full"
+      src="/images/tractor-2.webp"
+      srcSet="
+    /images/agriculture/tractor-1.webp 400w,
+    /images/agriculture/tractor-2.webp 800w,
+  "
+      sizes="(max-width: 640px) 90vw,
+         (max-width: 1024px) 50vw,
+         800px"
       alt="Tractor working in a large green field"
+      loading="lazy"
      />
 
      <div className="mt-14 space-y-20">
       <h1 className="leading-9 text-4xl font-semibold">
        Join our Farming <br /> Community Today
       </h1>
-      <div className="flex gap-14 mb-10">
+      <div className="w-full max-w-xl mx-auto flex flex-col sm:flex-row gap-4 sm:gap-6 items-center">
        <input
         type="email"
-        className="w-fit h-fit px-20 py-5 bg-gray-100 rounded-full"
         placeholder="Type your email address"
+        className="w-full sm:flex-1 px-5 py-3 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
        />
        <button
         onClick={CommunityHandle}
-        className="bg-yellow-400 px-5 rounded-full"
+        className="w-full sm:w-auto bg-yellow-400 hover:bg-yellow-500 transition px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2"
        >
-        <strong>Join now</strong> <span className="arrow">→</span>
+        Join Now
+        <span className="transition-transform group-hover:translate-x-1">
+         →
+        </span>
        </button>
       </div>
      </div>
     </section>
    </main>
-
   </main>
  );
 }
