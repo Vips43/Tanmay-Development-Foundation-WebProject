@@ -88,7 +88,7 @@ const CardTransaction = () => {
 
   return (
     <>
-      <Header />
+
       <div className="title-container">
         <h2 className="title">CARD TRANSACTIONS</h2>
       </div>

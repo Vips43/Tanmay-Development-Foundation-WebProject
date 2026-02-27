@@ -1,65 +1,54 @@
-import React, { useState, useEffect } from "react";
-import "../styles/gallery.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
+import { useState } from "react";
 
 function Gallery() {
-  
-  const [currentImage, setCurrentImage] = useState(0);
-  const images = [
-    "images/image1.jpg",
-    "images/image3.jpg",
-    "images/image4.jpg",
-    "images/image5.jpg",
-    "images/image6.jpg",
-    "images/image9.jpg",
-    "images/image10.jpg",
-    "images/image11.jpg",
-    "images/image12.jpg",
-    "images/image13.jpg",
-    "images/image14.jpg",
-    "images/image15.jpg",
-    "images/image16.jpg",
-  ];
+ const images = [
+  "images/gallery/image1.jpg",
+  "images/gallery/image2.jpg",
+  "images/gallery/image3.jpg",
+  "images/gallery/image4.jpg",
+  "images/gallery/image5.jpg",
+  "images/gallery/image6.jpg",
+  "images/gallery/image7.jpg",
+  "images/gallery/image8.jpg",
+  "images/gallery/image9.jpg",
+  "images/gallery/image10.jpg",
+  "images/gallery/image11.jpg",
+  "images/gallery/image12.jpg",
+  "images/gallery/image13.jpg",
+  "images/gallery/image14.jpg",
+  "images/gallery/image15.jpg",
+  "images/gallery/image16.jpg",
+  "images/gallery/image18.jpg",
+  "images/gallery/image17.jpg",
+ ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 2000);
+ const [loaded, setLoaded] = useState({});
 
-    return () => clearInterval(interval); 
-  }, [images.length]);
+ return (
+   <main className="px-4 md:px-10 lg:px-20 py-16 max-w-7xl mx-auto">
+    <h1 className="text-3xl md:text-4xl font-bold text-center mb-12">
+     Our <span className="text-primary-light">Gallery</span>
+    </h1>
 
-  return (
-    <div className="App">
-    <Header/>
-      <main className="main-content">
-        <h1 className="gallery-title">
-          Our <span className="highlight2">Gallery</span>
-        </h1>
-        <div className="image-carousel">
-          <div
-            className="image-container"
-            style={{
-              transform: `translateX(-${currentImage * 100}%)`, 
-            }}
-          >
-            {images.concat(images).map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Gallery ${index + 1}`}
-                className="gallery-image"
-                onLoad={() => console.log(`Image ${index + 1} loaded`)}
-              />
-            ))}
-          </div>
-        </div>
-      </main>
-      <Footer/>
+    <div className="columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+     {images.map((image, index) => (
+      <div
+       key={index}
+       className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-500 group cursor-pointer"
+      >
+       <img
+        loading="lazy"
+        src={image}
+        alt={`Gallery ${index + 1}`}
+        onLoad={() => setLoaded((prev) => ({ ...prev, [index]: true }))}
+        className={`w-full h-auto object-cover transition-all duration-700 ease-out 
+        ${loaded[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"} group-hover:scale-105`}
+       />
+      </div>
+     ))}
     </div>
-  );
+   </main>
+ );
 }
 
 export default Gallery;

@@ -1,14 +1,8 @@
-import React from "react";
-// import "../styles/education.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+
 
 function Education() {
  return (
-  <div className="w-full bg-[#ece5f0]">
-   <Header />
-   <Navbar />
+  <main className="w-full bg-[#ece5f0]">
 
    <div className="border-8 border-primary w-sm md:w-xl ml-10 rounded-sm mt-16"></div>
    <h1 className="text-3xl md:text-5xl font-bold my-5 ml-10">Education</h1>
@@ -212,9 +206,7 @@ function Education() {
      className="absolute top-full right-0 h-20"
     />
    </div>
-
-   <Footer />
-  </div>
+  </main>
  );
 }
 export default Education;

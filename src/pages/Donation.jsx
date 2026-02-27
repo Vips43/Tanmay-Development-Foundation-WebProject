@@ -1,110 +1,15 @@
 import { useState } from "react";
-// import "../styles/home.css";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import { GoDotFill } from "react-icons/go";
 import { FaLock } from "react-icons/fa";
+import DonationForm from "../components/donation/DonationForm";
 
 function Donation() {
- const [donationType, setDonationType] = useState("once");
- const [customAmount, setCustomAmount] = useState("");
-
- const [amountSelected, setAmountSelected] = useState(false);
-
- const handleDonationTypeChange = (type) => {
-  setDonationType(type);
-  setAmountSelected(false);
- };
-
- const handleCustomAmountChange = (event) => {
-  setCustomAmount(event.target.value);
-  setAmountSelected(!!event.target.value);
- };
-
- const handleAmountButtonClick = (amount) => {
-  setCustomAmount(amount);
-  setAmountSelected(true);
- };
-
- const handleDonateNow = () => {
-  if (!formData.name || !formData.email) {
-   alert("PLEASE FILL THE PERSONAL DETAILS FIRST");
-   return;
-  }
-
-  const amount = customAmount || (donationType === "once" ? "3000" : "250");
-  setFormData((prev) => ({
-   ...prev,
-   amount: amount,
-   donationType: donationType,
-  }));
-  navigate("/Pin-Number");
- };
-
- const [formData, setFormData] = useState({
-  name: "",
-  email: "",
-  mobile: "",
-  address: "",
-  country: "",
-  pincode: "",
-  city: "",
-  state: "",
-  pan: "",
-  amount: customAmount,
-  donationType: donationType,
-  citizenship: "Indian",
- });
-
  const navigate = useNavigate();
-
- const handleChange = (e) => {
-  const { name, value } = e.target;
-  setFormData({ ...formData, [name]: value });
- };
-
- const handleSubmit = (e) => {
-  e.preventDefault();
-
-  if (!formData.name || !formData.email) {
-   alert("PLEASE FILL ALL REQUIRED PERSONAL DETAILS");
-   return;
-  }
-
-  const certificateData = {
-   ...formData,
-   name: formData.name,
-   amount: customAmount || formData.amount,
-   date: new Date().toLocaleDateString("en-IN"),
-   donationType: donationType,
-  };
-
-  navigate("/Pin-Number", { state: certificateData });
- };
-
- const InputField = ({ label, required, disabled }) => {
-  return (
-   <div className="relative">
-    <input
-     type="text"
-     disabled={disabled}
-     className="peer w-full bg-transparent border-b border-gray-300 focus:border-yellow-500 outline-none py-1 placeholder-transparent disabled:text-gray-500"
-     placeholder={label}
-    />
-    <label className="absolute left-0 -top-5 text-sm text-gray-600 peer-focus:text-yellow-600 transition">
-     {label}
-     {required && <span className="text-red-500">*</span>}
-    </label>
-   </div>
-  );
- };
 
  return (
   <div className="bg-[#ece5f0] font-montserrat">
-   <Header />
-   <Navbar />
+
 
    <div className="w-full shadow-[11px_13px_5px_0px_#00000040]">
     <img src="/images/home-hero-img.png" alt="" />
@@ -244,66 +149,7 @@ function Donation() {
       </section>
 
       {/* donations form  */}
-      <section className="border-4 border-[#FDD831] bg-white rounded-2xl shadow-lg p-6 w-full">
-       <div className="w-full max-w-3xl">
-        <h2 className="text-lg font-semibold mb-8">Enter your name</h2>
-
-        <form className="space-y-8">
-         {/* Row 1 */}
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <InputField label="Email" required />
-          <InputField label="Mobile no" required />
-         </div>
-
-         {/* Row 2 */}
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <InputField label="Address" required />
-          <InputField label="Country" />
-         </div>
-
-         {/* Row 3 */}
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <InputField label="Pincode" required />
-          <InputField label="City" />
-         </div>
-
-         {/* Row 4 */}
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <InputField label="State" />
-          <InputField label="India" disabled />
-         </div>
-
-         {/* PAN */}
-         <InputField label="Pan Number" />
-
-         {/* Declaration */}
-         <div className="flex items-start gap-3 text-sm text-gray-600">
-          <input type="checkbox" className="mt-1 w-4 h-4" />
-          <p className="text-xs tracking-tight">
-           I hereby declare that I am a citizen of India, making this donation
-           out of my own funds. The information provided above is correct to the
-           best of my knowledge. I know that further communications will be done
-           on contact details provided above.
-          </p>
-         </div>
-
-         {/* Payment Info */}
-         <div className="">
-          <img src="/images/payments/payment-method.png" alt="" />
-         </div>
-
-         {/* Button */}
-         <div className="flex justify-center">
-          <button
-           type="submit"
-           className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-2.5 rounded-full font-medium transition"
-          >
-           Continue To Payment
-          </button>
-         </div>
-        </form>
-       </div>
-      </section>
+      <DonationForm />
      </div>
     </div>
    </main>
@@ -399,7 +245,6 @@ function Donation() {
     />
    </div>
 
-   <Footer />
   </div>
  );
 }

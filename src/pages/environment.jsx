@@ -1,13 +1,8 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+
 
 function Environment() {
  return (
-  <div className="w-full bg-[#ece5f0]">
-   <Header donate={false} />
-   <Navbar />
-   <main className="">
+   <main className="w-full bg-[#ece5f0]">
     <div className="border-12 mx-3 border-primary-light w-sm md:w-xl rounded-md mt-16"></div>
     <h1 className="text-3xl mx-5 md:mx-10 md:text-5xl font-bold my-5">
      Environment
@@ -104,8 +99,7 @@ function Environment() {
      </p>
     </section>
    </main>
-   <Footer />
-  </div>
+
  );
 }
 export default Environment;

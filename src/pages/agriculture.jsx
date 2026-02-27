@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-// Don't forget to uncomment this if you need the classes at the bottom!
 import "../styles/agriculture.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import { agriculturalProjects } from "../data/data.js";
 
 function Agriculture() {
@@ -17,9 +13,8 @@ function Agriculture() {
  };
 
  return (
-  <div className="w-full bg-[#ece5f0] pb-10">
-   <Header donate={false} />
-   <Navbar />
+  <main className="w-full bg-[#ece5f0] pb-10">
+
 
    <header className="px-3 md:px-7 mt-10">
     <div className="w-48 border-4 border-primary rounded-md mb-4"></div>
@@ -161,8 +156,8 @@ function Agriculture() {
      </div>
     </section>
    </main>
-   <Footer />
-  </div>
+
+  </main>
  );
 }
 

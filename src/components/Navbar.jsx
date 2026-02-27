@@ -29,7 +29,7 @@ function Navbar() {
   },
   { label: "Gallery", path: "/Gallery" },
   { label: "Media", path: "/About-Us" },
-  { label: "Donation", path: "/Mode-Transaction" },
+  { label: "Donation", path: "/Donation" },
  ];
 
  return (
