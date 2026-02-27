@@ -1,91 +1,86 @@
 import React, { useState } from "react";
-import "../styles/payment.css";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 function Payment() {
-  const [errorMessage, setErrorMessage] = useState("");
-  const [amount, setAmount] = useState("");
+ const [errorMessage, setErrorMessage] = useState("");
+ const [amount, setAmount] = useState("");
+ const [upiId, setUpiId] = useState("");
 
-  const [upiId, setUpiId] = useState("");
-  const navigate = useNavigate();
-  const handleAmountChange = (e) => {
-    const value = e.target.value;
-    if (!isNaN(value)) {
-      setAmount(value);
-    }
-  };
+ const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setErrorMessage("");
-    if (!amount || !upiId) {
-      setErrorMessage("PLEASE FILL IN BOTH AMOUNT ANS UPI ID.");
-      return;
-    }
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  setErrorMessage("");
 
-    const item = {
-      amount,
-      upiId,
-    };
-
-    console.log(item);
-    navigate("/Pin-Number");
-   
+  if (!amount || !upiId) {
+   setErrorMessage("Please fill in both Amount and UPI ID.");
+   return;
   }
-  return (
-    <>
-      <Header />
-      <div className="title-container">
-        <h2 className="title">UPI TRANSACTIONS</h2>
-      </div>
-      <div className="container">
-        <div className="payment-box">
-          <form onSubmit={handleSubmit}>
-            <div className="QR-container">
-              <div className="QR-section">
-                <img
-                  src="./images/scanner.png"
-                  alt="QR-scanner"
-                  className="qr-scanner"
-                ></img>
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Amount</label>
-              <input
-                type="text"
-                placeholder="PLEASE ENTER DONATION AMOUNT"
-                className="input-field"
-                value={amount}
-                onChange={handleAmountChange}
-              />
-            </div>
 
-            <div className="form-group">
-              <label>UPI ID</label>
-              <input
-                type="text"
-                placeholder="PLEASE ENTER UPI ID "
-                className="input-field"
-                value={upiId}
-                onChange={(e) => setUpiId(e.target.value)}
-              />
-              {errorMessage && (
-                <span className="error-message">{errorMessage}</span>
-              )}
-            </div>
+  navigate("/Pin-Number");
+ };
 
-            <button type="submit" className="submit-btn">
-              Continue payment
-            </button>
-          </form>
-        </div>
-      </div>
-      <Footer />
-    </>
-  );
+ return (
+  <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center px-4">
+   {/* Title */}
+   <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-800 text-center">
+    UPI Transactions
+   </h2>
+
+   {/* Payment Card */}
+   <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6 md:p-8 space-y-6">
+    {/* QR Section */}
+    <div className="flex justify-center">
+     <img
+      src="/images/scanner.png"
+      alt="QR Scanner"
+      className="w-40 h-40 object-contain"
+     />
+    </div>
+
+    {/* Form */}
+    <form onSubmit={handleSubmit} className="space-y-5">
+     {/* Amount */}
+     <div className="flex flex-col space-y-2">
+      <label className="text-sm font-medium text-gray-700">Amount</label>
+      <input
+       type="number"
+       min="1"
+       placeholder="Enter Donation Amount"
+       value={amount}
+       onChange={(e) => setAmount(e.target.value)}
+       className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+      />
+     </div>
+
+     {/* UPI ID */}
+     <div className="flex flex-col space-y-2">
+      <label className="text-sm font-medium text-gray-700">UPI ID</label>
+      <input
+       type="text"
+       placeholder="example@upi"
+       value={upiId}
+       onChange={(e) => setUpiId(e.target.value)}
+       className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+      />
+     </div>
+
+     {/* Error Message */}
+     {errorMessage && (
+      <p className="text-red-500 text-sm text-center">{errorMessage}</p>
+     )}
+
+     {/* Button */}
+     <button
+      type="submit"
+      className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2.5 rounded-lg transition duration-300"
+     >
+      Continue Payment
+     </button>
+    </form>
+   </div>
+  </div>
+ );
 }
 
 export default Payment;

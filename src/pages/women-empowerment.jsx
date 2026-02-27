@@ -1,7 +1,7 @@
 function WomenEmpowerment() {
  return (
-  <main className="bg-[#ece5f0]">
-   <div className="border-8 border-primary w-sm md:w-xl ml-10 rounded-sm mt-16"></div>
+  <main className="bg-[#ece5f0] pt-16">
+   <div className="border-8 border-primary w-sm md:w-xl ml-10 rounded-sm "></div>
    <h1 className="text-3xl md:text-5xl font-bold my-5 ml-10">
     Women Empowerment{" "}
    </h1>

@@ -1,23 +1,30 @@
 import React, { useState } from "react";
+import { useMystore } from "../../store/myStore";
+import { useNavigate } from "react-router-dom";
 
 function DonationForm() {
- const [form, setForm] = useState({});
+ const navigate = useNavigate();
+
+ const userData = useMystore((state) => state.userData);
+ const setUserData = useMystore((state) => state.setUserData);
+
  const handleSubmit = (e) => {
   e.preventDefault();
 
   const formData = new FormData(e.target);
   const formObj = Object.fromEntries(formData.entries());
-  setForm(formObj);
-  alert(`form has been filled ${formData.get("Name")}`)
-  console.log(formData,formObj)
+  setUserData(formObj);
+  alert(`Thanks for your support ${formData.get("name")}!`);
+
+  navigate(`/ModeTransaction`)
  };
 
- const InputField = ({ label, required, disabled }) => {
+ const InputField = ({ label, name, required, disabled }) => {
   return (
    <div className="relative">
     <input
      type="text"
-     name={label}
+     name={name}
      disabled={disabled}
      required={required}
      className="peer w-full bg-transparent border-b border-gray-300 focus:border-yellow-500 outline-none py-1 placeholder-transparent disabled:text-gray-500"
@@ -38,34 +45,34 @@ function DonationForm() {
     <form className="space-y-8" onSubmit={handleSubmit}>
      {/* Row 0 */}
      <div className="grid grid-cols-1 gap-8">
-      <InputField label="Name" required />
+      <InputField label="Name" name="name" required />
      </div>
      {/* Row 1 */}
      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <InputField label="Email" required />
-      <InputField label="Mobile no" required />
+      <InputField label="Email" name="email" required />
+      <InputField label="Mobile no" name="mobile" required />
      </div>
 
      {/* Row 2 */}
      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <InputField label="Address" required />
-      <InputField label="Country" />
+      <InputField label="Address" name="address" required />
+      <InputField label="Country" name="country" />
      </div>
 
      {/* Row 3 */}
      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <InputField label="Pincode" required />
-      <InputField label="City" />
+      <InputField label="Pincode" name="pincode" required />
+      <InputField label="City" name="city" />
      </div>
 
      {/* Row 4 */}
      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <InputField label="State" />
-      <InputField label="India" disabled />
+      <InputField label="State" name="state" />
+      <InputField label="India" name="country" disabled />
      </div>
 
      {/* PAN */}
-     <InputField label="Pan Number" required />
+     <InputField label="Pan Number" name="pan_number" required />
 
      {/* Declaration */}
      <div className="flex items-start gap-3 text-sm text-gray-600">

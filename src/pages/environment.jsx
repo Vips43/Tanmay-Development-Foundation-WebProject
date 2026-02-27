@@ -2,8 +2,8 @@
 
 function Environment() {
  return (
-   <main className="w-full bg-[#ece5f0]">
-    <div className="border-12 mx-3 border-primary-light w-sm md:w-xl rounded-md mt-16"></div>
+   <main className="w-full bg-[#ece5f0] pt-16">
+    <div className="border-8 border-primary w-sm md:w-xl ml-10 rounded-sm "></div>
     <h1 className="text-3xl mx-5 md:mx-10 md:text-5xl font-bold my-5">
      Environment
     </h1>

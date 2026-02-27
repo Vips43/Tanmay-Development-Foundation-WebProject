@@ -13,11 +13,11 @@ function Agriculture() {
  };
 
  return (
-  <main className="w-full bg-[#ece5f0] pb-10">
+  <main className="w-full bg-[#ece5f0] py-16">
 
 
-   <header className="px-3 md:px-7 mt-10">
-    <div className="w-48 border-4 border-primary rounded-md mb-4"></div>
+   <header className="px-3 md:px-7">
+    <div className="border-8 border-primary w-sm md:w-xl rounded-sm "></div>
     <h1 className="text-3xl font-bold font-montserrat">
      Sustainable Agriculture
     </h1>

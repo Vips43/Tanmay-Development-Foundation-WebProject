@@ -1,5 +1,6 @@
 
 .title-container {
+  border: 1px solid #000;
   text-align: center;
   margin-top: 5px;
   height: 330px;

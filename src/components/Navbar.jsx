@@ -83,14 +83,11 @@ function Navbar() {
        {/* Dropdown Menu */}
        {hasChildren && (
         <ul
-         className={`
-                    overflow-hidden transition-all duration-300 ease-in-out z-50
-                    bg-green-800 md:bg-white md:text-gray-800 md:shadow-xl md:rounded-b-lg md:absolute md:left-0 md:top-full md:min-w-[240px]
-                    /* Mobile visibility logic */
-                    ${openDropdown === index ? "max-h-96 opacity-100 visible" : "max-h-0 opacity-0 invisible"}
-                    /* Desktop visibility logic (Hover instantly opens it on PC) */
-                    md:max-h-fit md:group-hover:opacity-100 md:group-hover:visible
-                  `}
+         className={` overflow-hidden transition-all duration-300 ease-in-out z-50 bg-green-800 md:bg-white md:text-gray-800 md:shadow-xl md:rounded-b-lg md:absolute md:left-0 md:top-full md:min-w-60
+        /* Mobile visibility logic */
+        ${openDropdown === index ? "max-h-96 opacity-100 visible" : "max-h-0 opacity-0 invisible"} 
+        /* Desktop visibility logic (Hover instantly opens it on PC) */
+         md:max-h-fit md:group-hover:opacity-100 md:group-hover:visible`}
         >
          {li.child.map((child, i) => (
           <li key={i}>

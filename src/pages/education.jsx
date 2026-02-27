@@ -1,22 +1,17 @@
-
-
 function Education() {
  return (
-  <main className="w-full bg-[#ece5f0]">
-
-   <div className="border-8 border-primary w-sm md:w-xl ml-10 rounded-sm mt-16"></div>
+  <main className="w-full bg-[#ece5f0] pt-16">
+   <div className="border-8 border-primary w-sm md:w-xl ml-10 rounded-sm "></div>
    <h1 className="text-3xl md:text-5xl font-bold my-5 ml-10">Education</h1>
-   <div className="relative border-b-[1.5rem] md:border-b-[2rem] border-primary w-full">
+   <div className="border-b-[1.5rem] md:border-b-[2rem] border-primary w-full">
     {/* The Hero Image */}
     <img
+     loading="lazy"
      src="/src/assets/edu/education-hero.png"
      alt="Students learning"
-     className="w-full h-[40vh] md:h-[60vh] object-cover"
+     className="w-full h-[40vh] md:h-[60vh]  object-right md:object-cover"
     />
-    <div className="absolute inset-0 flex items-center justify-center p-6 bg-black/20">
-     {/* The Quote */}
-     
-    </div>
+    
    </div>
 
    <section className="mt-20">
@@ -77,12 +72,14 @@ function Education() {
    </section>
 
    <img
+    loading="lazy"
     src="/src/assets/edu/Rectangle 7.png"
     alt="children-with-books"
     className="w-full"
    />
    <div className="flex items-center gap-10 mx-3">
     <img
+     loading="lazy"
      src="images/our-role.png"
      alt="our-role-education"
      className="rounded-2xl aspect-square w-72"
@@ -104,7 +101,8 @@ function Education() {
     <div className="flex flex-col items-center justify-between tracking-tighter">
      <div className="w-full p-2 mb-4">
       <img
-       src="/images/our-work-img1.jpg"
+       loading="lazy"
+       src="/images/gallery/image7.jpg"
        alt="Providing education material"
        className="w-full h-full aspect-square object-cover rounded-2xl shadow-md"
       />
@@ -118,7 +116,8 @@ function Education() {
     <div className="flex flex-col items-center justify-between tracking-tighter">
      <div className="w-full p-2 mb-4">
       <img
-       src="/images/image3.jpg"
+       loading="lazy"
+       src="/images/gallery/image3.jpg"
        alt="Enhancing rural primary education"
        className="w-full h-full aspect-square object-cover rounded-2xl shadow-md"
       />
@@ -132,7 +131,8 @@ function Education() {
     <div className="flex flex-col items-center justify-between tracking-tighter">
      <div className="w-full p-2 mb-4">
       <img
-       src="/images/image15.jpg"
+       loading="lazy"
+       src="/images/gallery/image15.jpg"
        alt="Comprehensive curriculum design"
        className="w-full h-full aspect-square object-cover rounded-2xl shadow-md"
       />
@@ -149,7 +149,8 @@ function Education() {
     <div className="flex flex-col items-center text-center group">
      <div className="w-full aspect-video overflow-hidden rounded-2xl shadow-md mb-6">
       <img
-       src="/images/image6.jpg"
+       loading="lazy"
+       src="/images/gallery/image6.jpg"
        alt="Distributing educational supplies"
        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
@@ -168,7 +169,8 @@ function Education() {
     <div className="relative flex flex-col items-center text-center group">
      <div className="w-full aspect-video overflow-hidden rounded-2xl shadow-md mb-6">
       <img
-       src="/images/students-studying.jpg"
+       loading="lazy"
+       src="/images/gallery/image8.jpg"
        alt="Students studying in rural areas"
        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
@@ -179,7 +181,8 @@ function Education() {
      {/* Replaces your custom 'underline1' class */}
      <div className="h-0.75 w-24 bg-primary rounded-full mt-5"></div>
      <img
-      src="/src/assets/edu/Vector 4.png"
+      loading="lazy"
+      src="/src/assets/edu/Vector-4.png"
       alt=""
       className="absolute hidden md:block top-full left-full h-44"
      />
@@ -189,7 +192,8 @@ function Education() {
     <div className="flex flex-col items-center text-center group">
      <div className="w-full aspect-video overflow-hidden rounded-2xl shadow-md mb-6">
       <img
-       src="/images/children-watching-tv.jpg"
+       loading="lazy"
+       src="/src/assets/edu/children-watching-tv.jpg"
        alt="Children watching educational content"
        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
@@ -201,9 +205,10 @@ function Education() {
      <div className="h-0.75 w-24 bg-primary rounded-full mt-5"></div>
     </div>
     <img
-     src="/src/assets/edu/Frame 154.png"
+     loading="lazy"
+     src="/src/assets/edu/Frame-154.png"
      alt=""
-     className="absolute top-full right-0 h-20"
+     className="absolute bottom-0 right-0 h-20"
     />
    </div>
   </main>
