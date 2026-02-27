@@ -7,7 +7,8 @@ function WomenEmpowerment() {
    </h1>
    <div className="mx-5">
     <img
-     src="/images/women-empowerment/Group 11.png"
+     loading="lazy"
+     src="/images/women-empowerment/Group-11.webp"
      alt=""
      className="w-full"
     />
@@ -62,7 +63,8 @@ function WomenEmpowerment() {
      {/* Column 2: Image */}
      <div className="w-full rounded-2xl overflow-hidden shadow-xl max-w-112.5">
       <img
-       src="/images/women-empowerment/Frame-337.png"
+       loading="lazy"
+       src="/images/women-empowerment/Frame-337.webp"
        alt="Women farmers working in agriculture"
        className="w-full"
       />
@@ -71,7 +73,8 @@ function WomenEmpowerment() {
    </section>
 
    <img
-    src="images/women-empowerment/CultivatingChange.png"
+    loading="lazy"
+    src="images/women-empowerment/CultivatingChange.webp"
     alt="CultivatingChange"
     className="shadow-[-1.64px_8.22px_4.03px_0px_#00000040]"
    />

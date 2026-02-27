@@ -1,12 +1,12 @@
 import "../styles/home.css";
 import { Link } from "react-router-dom";
-import hero1 from "../assets/home/about-us-img1.png";
-import hero2 from "../assets/home/home-hero.jpg";
-import hero3 from "../assets/home/home-hero-img.png";
-import hero4 from "../assets/home/people-sitting-together.jpg";
-import hero5 from "../assets/home/womenwithstartup.png";
-import hero6 from "../assets/home/har.jpg";
-import hero7 from "../assets/home/about-us-img1.png";
+import hero1 from "../assets/home/about-us-img1.webp";
+import hero2 from "../assets/home/home-hero.webp";
+import hero3 from "../assets/home/home-hero-img.webp";
+import hero4 from "../assets/home/people-sitting-together.webp";
+import hero5 from "../assets/home/womenwithstartup.webp";
+import hero6 from "../assets/home/har.webp";
+import hero7 from "../assets/home/about-us-img1.webp";
 import { useEffect, useState } from "react";
 
 function Home() {
@@ -110,10 +110,10 @@ function Home() {
      <span></span> Media <span></span>
     </h1>
     <div className="home-media_imgs">
-     <img loading="lazy" src="/images/media/media1.jpg" alt="" />
-     <img loading="lazy" src="/images/media/media2.jpg" alt="" />
-     <img loading="lazy" src="/images/media/media3.jpg" alt="" />
-     <img loading="lazy" src="/images/media/media4.jpg" alt="" />
+     <img loading="lazy" src="/images/media/media1.jpg" alt="barabanki-news" />
+     <img loading="lazy" src="/images/media/media2.jpg" alt="tanmay development Foundation news" />
+     <img loading="lazy" src="/images/media/media3.jpg" alt="tanmay development Foundation news" />
+     <img loading="lazy" src="/images/media/media4.jpg" alt="aware womens related to monthly cycle" />
     </div>
    </section>
    {/* section our impact  */}

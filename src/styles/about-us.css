@@ -107,7 +107,7 @@
 }
 .about-focus-agr {
  position: relative;
- background-image: url("../assets/home/about-us-img1.png");
+ background-image: url("../assets/home/about-us-img1.webp");
  background-repeat: no-repeat;
  background-position: bottom;
  background-size: cover;
@@ -133,7 +133,7 @@
  grid-area: edu;
  border-radius: 0.5rem;
  padding: 2.5rem 1rem;
- background: url("../assets/home/image3.jpg") no-repeat center;
+ background: url("../assets/home/image3.webp") no-repeat center;
  background-size: cover;
  overflow: hidden;
  h3 {
@@ -153,14 +153,14 @@
  grid-area: wom;
  border-radius: 0.5rem;
  padding: 5.5rem 1rem;
- background: url("../assets/home/women-impowerment.png") no-repeat center;
+ background: url("../assets/home/women-impowerment.webp") no-repeat center;
  background-size: cover;
 }
 .about-focus-env {
  grid-area: env;
  border-radius: 0.5rem;
  padding: 1rem;
- background: url("../assets/home/environment.png") no-repeat center;
+ background: url("../assets/home/environment.webp") no-repeat center;
  background-size: cover;
 }
 
@@ -212,7 +212,7 @@
  width: 100%;
 }
 .about-impact_container > .impact > div {
- background: url("../assets/impact/bg-circle.png") no-repeat center;
+ background: url("../assets/impact/bg-circle.webp") no-repeat center;
  background-size: contain;
  width: 100%;
  max-width: 150px;

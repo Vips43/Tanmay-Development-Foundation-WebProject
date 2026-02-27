@@ -16,7 +16,7 @@ function DonationForm() {
   setUserData(formObj);
   alert(`Thanks for your support ${formData.get("name")}!`);
 
-  navigate(`/ModeTransaction`)
+  navigate(`/Mode-Transaction`)
  };
 
  const InputField = ({ label, name, required, disabled }) => {

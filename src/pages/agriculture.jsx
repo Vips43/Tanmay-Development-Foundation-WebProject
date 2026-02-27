@@ -25,7 +25,7 @@ function Agriculture() {
 
    <main className="px-3 md:px-7 space-y-10">
     <img
-     src="images/har.jpg"
+     src="images/agriculture/har.webp"
      alt="Farmers working in a field during sunset with green crops in the foreground"
      className="rounded-2xl shadow-[12px_20px_4px_0px_#00000040] my-5"
     />
@@ -66,17 +66,17 @@ function Agriculture() {
      </h1>
      <div className="grid grid-cols-3 gap-2">
       <img
-       src="images/manInField1.png"
+       src="images/agriculture/manInField1.webp"
        className="aspect-square object-cover object-bottom-left"
        alt="manInField"
       />
       <img
-       src="images/manInField.png"
+       src="images/agriculture/manInField.webp"
        className="aspect-square object-cover object-bottom-left"
        alt="manInField"
       />
       <img
-       src="images/field-image.jpg"
+       src="images/agriculture/field-image.webp"
        className="aspect-square object-cover object-bottom-right"
        alt="peopleInField"
       />
