@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 
 function MainLayout() {
  return (
-  <div>
+  <div className="min-w-112.5">
    {/* <Header /> */}
    <Navbar />
    <main>
