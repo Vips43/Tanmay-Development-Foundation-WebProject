@@ -49,9 +49,6 @@ function Home() {
 
   return (
     <main className="home">
-
-      
-
       <div className="home-hero-background relative overflow-hidden">
         {slideShow.map((image, index) => (
           <div

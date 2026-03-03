@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CiMenuFries, CiMenuBurger } from "react-icons/ci";
+import { IoIosArrowDown } from "react-icons/io";
 
 function Navbar() {
  const [openDropdown, setOpenDropdown] = useState(null);
- const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
+ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
  const dropdownRef = useRef(null);
 
  useEffect(() => {
@@ -15,7 +16,8 @@ function Navbar() {
    }
   };
   document.addEventListener("mousedown", handleClickOutside);
-  return () => document.removeEventListener("mousedown", handleClickOutside);
+  return () =>
+   document.removeEventListener("mousedown", handleClickOutside);
  }, []);
 
  const navLis = [
@@ -35,94 +37,162 @@ function Navbar() {
  ];
 
  return (
-  <nav className="w-full shadow-md relative z-50">
+  <nav
+   className="w-full flex flex-col shadow-md bg-primary sticky top-0 z-50"
+   ref={dropdownRef}
+  >
+   {/* Mobile Top Logo */}
    <div className="bg-white md:hidden">
-    <img src="/images/NGO_logo/logo_text_ngo.png" alt="" className="h-20 mx-auto" />
+    <img
+     src="/images/NGO_logo/logo_text_ngo.png"
+     alt="NGO Logo"
+     className="h-20 mx-auto object-contain"
+    />
    </div>
-   <header className="bg-primary md:bg-white flex items-center justify-between md:justify-end px-5 py-2 md:py-4">
-    <picture>
-     <source media="(min-width: 768px)" srcSet="/images/NGO_logo/logo_ngo.png" />
-     <img
-      src="/images/NGO_logo/ngoo.png"
-      alt="NGO Logo"
-      className="h-12 md:h-20 object-contain cursor-pointer"
-     />
-    </picture>
-    <button
-     className="md:hidden text-3xl text-white transition-all duration-300 cursor-pointer"
-     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-    >
-     {isMobileMenuOpen ? <CiMenuFries /> : <CiMenuBurger />}
-    </button>
-   </header>
 
-   <div className={`bg-green-700 transition-all ${isMobileMenuOpen ? "max-h-96" : "max-h-0 overflow-hidden"} md:block border-t border-green-600`}>
-    <ul
-     ref={dropdownRef}
-     className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-center text-white"
-    >
-     {navLis.map((li, index) => {
-      const hasChildren = li.child;
+   <div className="flex flex-row md:flex-col justify-between items-center">
+    {/* Header */}
+    <header className="flex md:bg-white w-full items-center md:justify-end px-6 py-3">
+     <picture>
+      <source
+       media="(min-width: 768px)"
+       srcSet="/images/NGO_logo/logo_ngo.png"
+      />
+      <img
+       src="/images/NGO_logo/ngoo.png"
+       alt="NGO Logo"
+       className="h-12 md:h-20 object-contain cursor-pointer"
+      />
+     </picture>
+    </header>
 
-      return (
-       <li
-        key={index}
-        className="group relative w-full md:w-auto text-center border-b border-green-600/30 md:border-none"
-       >
-        {hasChildren ? (
-         <>
-          <button
-           onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
-           className="flex items-center justify-center w-full md:w-auto px-6 py-4 font-medium hover:bg-green-600 transition-colors"
-          >
-           {li.label}
-           <svg
-            className={`w-4 h-4 ml-1.5 transition-transform duration-300 ${openDropdown === index ? "rotate-180" : ""
-             } md:group-hover:rotate-180`}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-           </svg>
-          </button>
+    {/* Desktop Menu */}
+    <ul className="hidden md:flex h-20 items-center gap-10 font-medium text-white pr-8">
+     {navLis.map((item, index) => (
+      <li key={index} className="relative text-lg">
+       {item.child ? (
+        <>
+         <button
+          onClick={() =>
+           setOpenDropdown(
+            openDropdown === index ? null : index
+           )
+          }
+          className="flex items-center gap-1 hover:text-primary-light transition-colors duration-200"
+         >
+          {item.label}
+          <IoIosArrowDown
+           className={`transition-transform duration-300 ${openDropdown === index ? "rotate-180" : ""
+            }`}
+          />
+         </button>
 
-          <ul
-           className={`overflow-hidden transition-all duration-300 ease-in-out z-50 bg-green-800 md:bg-white md:text-gray-800 md:shadow-xl md:absolute md:left-0 md:top-full md:min-w-60
-                      ${openDropdown === index ? "max-h-96 opacity-100 visible" : "max-h-0 opacity-0 invisible"} 
-                      md:max-h-fit md:group-hover:opacity-100 md:group-hover:visible`}
-          >
-           {li.child.map((child, i) => (
+         <div
+          className={`absolute left-0 top-full mt-3 w-60 origin-top transition-all duration-200 ${openDropdown === index
+            ? "opacity-100 scale-100 visible"
+            : "opacity-0 scale-95 invisible"
+           }`}
+         >
+          <ul className="bg-white rounded-xl shadow-xl border border-gray-100 py-2">
+           {item.child.map((sub, i) => (
             <li key={i}>
              <Link
-              to={child.path}
-              onClick={() => {
-               setOpenDropdown(null);
-               setIsMobileMenuOpen(false);
-              }}
-              className="block px-6 py-3 text-sm hover:bg-green-600 md:hover:bg-green-50 md:hover:text-green-700 transition-colors border-b border-green-700/50 md:border-gray-100 last:border-none"
+              to={sub.path}
+              className="block px-5 py-3 text-base text-gray-700 hover:bg-green-50 hover:text-primary-light transition-colors duration-150"
+              onClick={() => setOpenDropdown(null)}
              >
-              {child.label}
+              {sub.label}
              </Link>
             </li>
            ))}
           </ul>
-         </>
-        ) : (
-         <NavLink
-          to={li.path}
-          onClick={() => setIsMobileMenuOpen(false)}
-          className={({ isActive }) =>
-           `block px-6 py-4 font-medium transition-colors ${isActive ? "bg-green-900 md:bg-green-800" : "hover:bg-green-600"
-           }`
+         </div>
+        </>
+       ) : (
+        <NavLink
+         to={item.path}
+         className={({ isActive }) =>
+          isActive
+           ? "text-black font-semibold"
+           : "hover:text-primary-light transition"
+         }
+        >
+         {item.label}
+        </NavLink>
+       )}
+      </li>
+     ))}
+    </ul>
+
+    {/* Mobile Toggle */}
+    <button
+     className="md:hidden text-3xl text-white pr-6 transition-transform duration-200 active:scale-90"
+     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+    >
+     {isMobileMenuOpen ? <CiMenuFries /> : <CiMenuBurger />}
+    </button>
+   </div>
+
+   {/* Mobile Menu */}
+   <div
+    className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? "max-h-screen py-4" : "max-h-0"
+     } bg-primary`}
+   >
+    <ul className="flex flex-col px-6 space-y-4 text-white font-medium">
+     {navLis.map((item, index) => (
+      <li key={index}>
+       {item.child ? (
+        <>
+         <button
+          onClick={() =>
+           setOpenDropdown(
+            openDropdown === index ? null : index
+           )
           }
+          className="flex items-center justify-between w-full py-2"
          >
-          {li.label}
-         </NavLink>
-        )}
-       </li>
-      );
-     })}
+          {item.label}
+          <IoIosArrowDown
+           className={`transition-transform duration-300 ${openDropdown === index ? "rotate-180" : ""
+            }`}
+          />
+         </button>
+
+         <div
+          className={`overflow-hidden transition-all duration-300 ${openDropdown === index
+            ? "max-h-96 mt-2"
+            : "max-h-0"
+           }`}
+         >
+          <ul className="flex flex-col space-y-2 pl-4 text-sm text-green-100">
+           {item.child.map((sub, i) => (
+            <li key={i}>
+             <Link
+              to={sub.path}
+              className="block py-1 hover:text-white transition"
+              onClick={() => {
+               setOpenDropdown(null);
+               setIsMobileMenuOpen(false);
+              }}
+             >
+              {sub.label}
+             </Link>
+            </li>
+           ))}
+          </ul>
+         </div>
+        </>
+       ) : (
+        <NavLink
+         to={item.path}
+         className="block py-2 hover:text-green-200 transition"
+         onClick={() => setIsMobileMenuOpen(false)}
+        >
+         {item.label}
+        </NavLink>
+       )}
+      </li>
+     ))}
     </ul>
    </div>
   </nav>
