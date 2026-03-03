@@ -78,7 +78,6 @@ const App = () => {
        </Suspense>
       }
      />
-
      <Route path="/Card-Transaction" element={<CardTransaction />} />
      <Route path="/Donation" element={<Donation />} />
      <Route path="/UPI-Payment" element={<Payment />} />

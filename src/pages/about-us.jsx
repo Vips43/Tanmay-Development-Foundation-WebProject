@@ -50,18 +50,7 @@ function AboutUs() {
      </div>
     </section>
    </div>
-   {/* media section  */}
-   <section className="about-media">
-    <h1 className="about-about_us_h1">
-     <span></span> Media <span></span>
-    </h1>
-    <div className="about-media_imgs">
-     <img src="/images/media/media1.webp" alt="" />
-     <img src="/images/media/media2.webp" alt="" />
-     <img src="/images/media/media3.webp" alt="" />
-     <img src="/images/media/media4.webp" alt="" />
-    </div>
-   </section>
+   
    {/* section our impact  */}
    <section className="about-impact">
     <h1 className="about-about_us_h1">

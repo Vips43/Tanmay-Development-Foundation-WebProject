@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import "../styles/PinNumber.css";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.vfs;

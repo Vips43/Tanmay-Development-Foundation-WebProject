@@ -40,3 +40,7 @@ code {
 ::-webkit-scrollbar-thumb:hover {
  background: var(--primary-dark);
 }
+
+.scrollbar-hidden::-webkit-scrollbar{
+  display: none;
+}
