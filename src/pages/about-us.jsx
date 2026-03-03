@@ -96,13 +96,12 @@ function AboutUs() {
           variants={containerVariants}
         >
           <motion.h1 variants={itemVariants} className="about_focus_h1">
-            Our Focus on Work
+            Promoting Digital India
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-xl px-6 md:px-10 text-center md:text-left leading-relaxed"
-          >
+            className="text-xl px-6 md:px-10 text-center md:text-left leading-relaxed" >
             Tanmay Computer Center is an initiative of Tanmay Development
             Foundation which is providing free computer education to rural poor
             and underprivileged children. The main support in this is from

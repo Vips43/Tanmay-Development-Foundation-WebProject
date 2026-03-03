@@ -41,26 +41,22 @@
  justify-content: center;
  align-items: center;
  gap: 1rem;
- font-size: 2.5rem;
+ font-size: 3.5rem;
  font-weight: 400;
  color: var(--primary);
 }
-.about-about_us_h1 > span:nth-child(1) {
+.about-about_us_h1 > span {
  display: block;
  width: 150px;
  border: 1px solid var(--primary);
 }
-.about-about_us_h1 > span:last-child {
- display: block;
- width: 150px;
- border: 1px solid var(--primary);
-}
+
 .about-about_us > p {
  margin: 0.5rem 3rem;
+ font-size: larger;
 }
 .about-focus {
- max-width: 1200px;
- margin: 0 auto;
+ margin: 2rem auto;
  padding: 0.5rem;
  background: var(--bgClr);
 }
@@ -280,7 +276,7 @@
 
 @media (max-width: 400px) {
  .about_focus_h1 {
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   white-space: normal;
  }
 
@@ -321,7 +317,7 @@
  /* hero bg image closed  */
  .about-about_us_h1 {
   gap: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 400;
   color: var(--primary);
  }
@@ -393,7 +389,7 @@
 @media (max-width: 1024px) {
  .about-about_us_h1 {
   gap: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 400;
   color: var(--primary);
  }
