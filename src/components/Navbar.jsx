@@ -2,8 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CiMenuFries, CiMenuBurger } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
+import { useMystore } from "../store/myStore";
 
 function Navbar() {
+  const navLis = useMystore((state) => state.navLis);
+
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -19,22 +22,9 @@ function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const navLis = [
-    { label: "Home", path: "/" },
-    {
-      label: "Function Areas",
-      child: [
-        { label: "Education", path: "/Education" },
-        { label: "Women Empowerment", path: "/Women-Empowerment" },
-        { label: "Environment", path: "/Environment" },
-        { label: "Agriculture", path: "/Agriculture" },
-      ],
-    },
-    { label: "Gallery", path: "/Gallery" },
-    { label: "About-us", path: "/About-Us" },
-    { label: "Donation", path: "/Donation" },
-  ];
-
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <nav
       className="w-full flex flex-col shadow-md bg-primary z-[999]"

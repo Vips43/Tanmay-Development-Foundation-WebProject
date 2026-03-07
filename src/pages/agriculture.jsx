@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { agriculturalProjects } from "../data/data.js";
+import React, { use, useEffect, useState } from "react";
+import { useMystore } from "../store/myStore.js";
 
 function Agriculture() {
-  const [projects, setProjects] = useState([]);
-  useEffect(() => {
-    setProjects(agriculturalProjects);
-  }, []);
+  const agrProjects = useMystore((state) => state.agrProjects);
 
+  console.log(agrProjects)
   const CommunityHandle = () => {
     window.open("https://chat.whatsapp.com/LbSH4XC8PJC8IcPZwLy1VS", "_blank");
   };
@@ -32,11 +30,11 @@ function Agriculture() {
             What is sustainable agriculture?
           </h2>
           <p className="mb-4">
-            Sustainable agriculture is farming in ways that meet society's food and
-            textile needs without compromising the ability of current or future
-            generations to meet their own needs. It aims to integrate ecological
-            processes, reduce reliance on non-renewable inputs, and promote
-            self-reliance among farmers.
+            Sustainable agriculture is farming in ways that meet society's food
+            and textile needs without compromising the ability of current or
+            future generations to meet their own needs. It aims to integrate
+            ecological processes, reduce reliance on non-renewable inputs, and
+            promote self-reliance among farmers.
           </p>
 
           <h2 className="text-lg font-bold my-5">
@@ -44,15 +42,17 @@ function Agriculture() {
           </h2>
           <div className="space-y-4">
             <p>
-              <strong>1.</strong> Sustainable agriculture prioritizes maintaining and
-              improving soil health. This involves practices such as crop rotation,
-              cover cropping, reduced tillage, and organic matter additions to enhance
-              soil fertility, structure, and water retention.
+              <strong>1.</strong> Sustainable agriculture prioritizes
+              maintaining and improving soil health. This involves practices
+              such as crop rotation, cover cropping, reduced tillage, and
+              organic matter additions to enhance soil fertility, structure, and
+              water retention.
             </p>
             <p>
               <strong>2.</strong> Efficient water use is crucial in sustainable
-              agriculture. Techniques like drip irrigation, rainwater harvesting, and
-              using drought-resistant crops help conserve water resources.
+              agriculture. Techniques like drip irrigation, rainwater
+              harvesting, and using drought-resistant crops help conserve water
+              resources.
             </p>
           </div>
         </section>
@@ -87,7 +87,7 @@ function Agriculture() {
           </h2>
 
           <div className="flex flex-col md:flex-row gap-10 md:gap-8 items-stretch">
-            {projects?.map((project, index) => (
+            {agrProjects?.map((project, index) => (
               <React.Fragment key={index}>
                 {/* The Project Card */}
                 <div className="flex-1 flex flex-col gap-4">
@@ -104,7 +104,7 @@ function Agriculture() {
                   />
                 </div>
 
-                {index !== projects.length - 1 && (
+                {index !== agrProjects.length - 1 && (
                   <>
                     {/* Desktop Vertical Divider */}
                     <div className="hidden md:block w-px bg-neutral-300 self-stretch"></div>
@@ -122,10 +122,10 @@ function Agriculture() {
             Our Sustainable Farming Solutions
           </h2>
           <p>
-            Through our sustainable farming solutions, we were able to achieve more
-            crop yield and minimize the negative environmental impacts of agriculture,
-            such as soil erosion, water pollution, habitat destruction, and greenhouse
-            gas emissions.
+            Through our sustainable farming solutions, we were able to achieve
+            more crop yield and minimize the negative environmental impacts of
+            agriculture, such as soil erosion, water pollution, habitat
+            destruction, and greenhouse gas emissions.
           </p>
           <img
             className="rounded-2xl aspect-video w-full"

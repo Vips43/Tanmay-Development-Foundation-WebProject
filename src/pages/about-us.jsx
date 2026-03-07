@@ -1,7 +1,22 @@
+import { useEffect } from "react";
+import { useMystore } from "../store/myStore";
 import "../styles/about-us.css";
 import { motion } from "framer-motion";
+import { CiCalendarDate } from "react-icons/ci";
+import { FaFileAlt, FaUser } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function AboutUs() {
+  const navigate = useNavigate();
+  const NgoDetails = [
+    { label: "Year Established", text: "2024", icon: <CiCalendarDate /> },
+    {
+      label: "License and Registration",
+      text: "BAB/06798/2023-2024",
+      icon: <FaFileAlt />,
+    },
+    { label: "Organizational Head", text: "N/A", icon: <FaUser /> },
+  ];
   const containerVariants = {
     hidden: {},
     visible: {
@@ -19,50 +34,7 @@ function AboutUs() {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
-  const works = [
-    {
-      img: "/images/about/education-comp.jpg",
-      label:
-        "Tanmay Development Foundation which is providing free computer education to rural poor and underprivileged children.",
-      alt: "providing computer education",
-    },
-    {
-      img: "/images/about/computer-education.jpg",
-      label: "Computer Education ",
-    },
-    {
-      img: "/images/about/tree-plantation.jpg",
-      label:
-        "on the occasion of 76th Republic Day villagers and children of Shiksha Kendra planted trees at a public place",
-      alt: "tree-plantation",
-    },
-    {
-      img: "/images/about/kids-craft.jpg",
-      label: "All the children participated in it enthusiastically.",
-      alt: "kids-craft",
-    },
-    {
-      img: "/images/about/certificate1.jpg",
-      label: "Cumputer certificate given to youngsters.",
-      alt: "certificate",
-    },
-    {
-      img: "/images/about/certificate.jpg",
-      label: "Cumputer certificate given to youngsters.",
-      alt: "certificate",
-    },
-    {
-      img: "/images/about/computer-skills.jpg",
-      label: "Kids are exploring their skills",
-      alt: "skills on computer",
-    },
-    {
-      img: "/images/about/solar-roof.jpg",
-      label:
-        "heartfelt gratitude to Diwakar and Priya Nigam Education Trust for their generous support in providing a 1.5 kW solar inverter for the TDF Computer Centre.",
-      alt: "solar-roof",
-    },
-  ];
+  const works = useMystore((state) => state.work);
 
   return (
     <main className="about">
@@ -88,6 +60,35 @@ function AboutUs() {
           betterment of the underprivileged society.
         </p>
 
+        {/* section organization details  */}
+        <section className="bg-bgClr p-6 md:p-10">
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            {NgoDetails.map((d, i) => (
+              <div
+                key={i}
+                className="bg-white py-5 px-6 flex-1 flex justify-between items-center gap-4 rounded-2xl border-l-4 border-l-primary shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex flex-col">
+                  <span className="text-gray-500 text-sm font-medium uppercase tracking-wide">
+                    {d.label}
+                  </span>
+                  <span className="font-bold text-xl text-gray-800 mt-1">
+                    {d.text}
+                  </span>
+                </div>
+
+                <div
+                  className="text-3xl text-gray-300 cursor-pointer"
+                  onClick={() => i === 1 && navigate(`/certificate`)}
+                >
+                  {d.icon}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Promoting digital india */}
         <motion.section
           className="about-focus"
           initial="hidden"
@@ -101,7 +102,8 @@ function AboutUs() {
 
           <motion.p
             variants={itemVariants}
-            className="text-xl px-6 md:px-10 text-center md:text-left leading-relaxed" >
+            className="text-xl px-6 md:px-10 text-center md:text-left leading-relaxed"
+          >
             Tanmay Computer Center is an initiative of Tanmay Development
             Foundation which is providing free computer education to rural poor
             and underprivileged children. The main support in this is from
@@ -118,7 +120,7 @@ function AboutUs() {
             variants={containerVariants}
             className="p-3 md:p-5 grid grid-cols-2 md:grid-cols-3 gap-6"
           >
-            {works.map((work, index) => (
+            {works?.map((work, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
@@ -139,68 +141,6 @@ function AboutUs() {
           </motion.div>
         </motion.section>
       </div>
-
-      {/* section our impact  */}
-      <section className="about-impact">
-        <h1 className="about-about_us_h1">
-          <span></span> Our Impact <span></span>
-        </h1>
-        <div className="about-impact_container">
-          <div className="impact">
-            <div>
-              <span>100+</span>
-            </div>
-            <p>
-              We organize community tree planting events to increase green cover
-              and combat deforestation.{" "}
-            </p>
-          </div>
-          <div className="impact">
-            <div>
-              <span>120+</span>
-            </div>
-            <p>
-              Successfully implemented primary education initiatives in the
-              village, enrolling 120 children, and providing necessary
-              educational materials, fostering a brighter future for the
-              community.
-            </p>
-          </div>
-          <div className="impact">
-            <div>
-              <span>300+</span>
-            </div>
-            <p>
-              Our NGO has empowered 300+ women through Livelihood Training
-              programs, conducted health camps, distributed sanitary products,
-              and educated women on menstrual hygiene to boost their health and
-              improve community.
-            </p>
-          </div>
-          <div className="impact">
-            <div>
-              <span>10+</span>
-            </div>
-            <p>
-              We implemented sustainable farming workshops for village children,
-              teaching them modern agricultural techniques, and water
-              conservation, ensuring food security.{" "}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* team section  */}
-      <section className="about-team">
-        <h1 className="about-about_us_h1">
-          <span></span> Meet the Team <span></span>
-        </h1>
-        <div className="about-team_imgs_c">
-          <div className="about-team_imgs">
-            <img src="/images/NgoTeamMember.jpg" alt="" />
-          </div>
-        </div>
-      </section>
 
       {/* about progess */}
       <section className="about-progress">

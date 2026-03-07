@@ -154,6 +154,10 @@ function Home() {
                 src: "/images/media/media4.webp",
                 alt: "Menstrual Hygiene Awareness Workshop",
               },
+              {
+                src: "/images/media/media5.png",
+                alt: "Menstrual Hygiene Awareness Workshop",
+              },
             ].map((item, idx) => (
               <div
                 key={idx}
@@ -237,10 +241,10 @@ function Home() {
                 className="[&>img]:rounded-full font-semibold [&>img]:aspect-square [&>img]:object-cover [&>img]:max-h-40 [&>img]:object-top [&>img]:border-2 [&>img]:border-primary"
               >
                 <img loading="lazy" src={`${member.img}`} alt="" />
-                <figcaption className="text-center mt-2 text-lg">
+                <figcaption className="text-center mt-2 whitespace-nowrap text-sm md:text-lg">
                   {member.name}
                 </figcaption>
-                <figcaption className="text-center">{member.desig}</figcaption>
+                <figcaption className="text-center font-medium text-xs md:text-base">{member.desig}</figcaption>
               </figure>
             ))}
           </div>

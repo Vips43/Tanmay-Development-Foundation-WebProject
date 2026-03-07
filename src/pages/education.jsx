@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useMystore } from "../store/myStore";
 
 function Education() {
   const containerVariants = {
@@ -19,44 +20,8 @@ function Education() {
     },
   };
 
-  const roles = [
-    {
-      img: "/images/gallery/image7.webp",
-      name: "Providing material for education",
-      alt: "Providing education material.",
-    },
-    {
-      img: "/images/gallery/image3.webp",
-      name: "Enhancing primary education in Rural Area",
-      alt: "Enhancing rural primary education",
-    },
-    {
-      img: "/images/gallery/image15.webp",
-      name: "We provide a comprehensive curriculum design to foster critical thinking, creativity, and lifelong learning skills.",
-      alt: "Comprehensive curriculum design.",
-    },
-    {
-      img: "/images/gallery/image6.webp",
-      name: "Distributed numbers of educational.",
-      alt: "Distributing educational supplies",
-    },
-    {
-      img: "/images/gallery/image8.webp",
-      name: "Improving Literacy rate in Rural Areas.",
-      alt: "Students studying in rural areas",
-    },
-    {
-      img: "/images/edu/children-watching-tv.webp",
-      name: "Empowering Rural India through Digital Literacy.",
-      alt: "Children watching educational content",
-    },
-    {
-      img: "/images/edu/computer_training.jpg",
-      name: " empower students, youth, and women with essential **computer literacy, online learning tools, and digital skills** for a brighter future.",
-      alt: "Education Promotion Initiative",
-    },
-    { img: "/images/edu/tree-plantation.jpg", name: " ", alt: " " },
-  ];
+  const roles = useMystore(state=> state.roles);
+
 
   return (
     <main className="w-full bg-[#ece5f0] py-16 ">
